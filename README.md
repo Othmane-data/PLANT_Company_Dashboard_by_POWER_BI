@@ -112,23 +112,68 @@ CALCULATE(
 
 ```
 
-___Column Chart Title;___
+#### Switch :
+
+___S_PYTD;___
 ```sql
-Column Chart Title = SELECTEDVALUE(SK_Values[Values]) & " YTD & PYTD | Month "
+S_PYTD = 
+VAR SelectedValue = SELECTEDVALUE(SK_Values[Values]) 
+VAR Result =
+    SWITCH(
+        SelectedValue, 
+        "Sales", [PYTD_Sales], 
+        "Quantity", [PYTD_Quantity], 
+        "Gross Profit", [PYTD_CrossProfit], 
+        BLANK()
+    ) 
+RETURN 
+    Result
 
 ```
 
-___Column Chart Title;___
+___S_YTD;___
 ```sql
-Column Chart Title = SELECTEDVALUE(SK_Values[Values]) & " YTD & PYTD | Month "
+S_YTD = 
+VAR SelectedValue = SELECTEDVALUE(SK_Values[Values]) 
+VAR Result =
+    SWITCH(
+        SelectedValue, 
+        "Sales", [YTD_Sales], 
+        "Quantity", [YTD_Quantity], 
+        "Gross Profit", [YTD_CrossProfit], 
+        BLANK()
+    ) 
+RETURN 
+    Result
 
 ```
 
-___Column Chart Title;___
+___YTD vs PYTD;___
 ```sql
-Column Chart Title = SELECTEDVALUE(SK_Values[Values]) & " YTD & PYTD | Month "
+YTD vs PYTD = [S_YTD]-[S_PYTD] 
 
 ```
+
+#### YTD :
+___YTD_CrossProfit;___
+```sql
+YTD_CrossProfit = TOTALYTD([Cross_Profit],fact_sales[Date_Time])
+
+```
+
+___YTD_Quantity;___
+```sql
+YTD_Quantity = TOTALYTD([Quantity],fact_sales[Date_Time])
+
+```
+
+___YTD_Sales;___
+```sql
+YTD_Sales = TOTALYTD([sales],fact_sales[Date_Time])
+
+```
+
+
 ### 📉 Charts and Visualization :
 
 KPI's Requirements   
