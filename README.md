@@ -1,7 +1,7 @@
 # PLANT_Company_Dashboard_by_POWER_BI
 
 
-![](all-dashboard.PNG)
+![](plantes.jpg)
 
 ---
 ## Introduction
@@ -33,25 +33,33 @@ My final [dashboard](all_dash_llc.pdf)
 
 ___Column Chart Title;___
 ```sql
-Column Chart Title = SELECTEDVALUE(SK_Values[Values]) & " YTD & PYTD | Month "
+Column Chart Title =
+SELECTEDVALUE
+(SK_Values[Values]) & " YTD & PYTD | Month "
 
 ```
 
 ___Report Title;___
 ```sql
-Report Title = " Othmane-Data LLC " & SELECTEDVALUE(SK_Values[Values]) & " Performance " & SELECTEDVALUE(Dim_date[Date].[Year])
+Report Title =
+ " Othmane-Data LLC " & SELECTEDVALUE(SK_Values[Values]) & " Performance " &
+SELECTEDVALUE(Dim_date[Date].[Year])
 
 ```
 
 ___Scatter Title;___
 ```sql
-Scatter Title = " Account Profitability Segmentation | GP% and " & SELECTEDVALUE(SK_Values[Values])
+Scatter Title =
+" Account Profitability Segmentation | GP% and " &
+SELECTEDVALUE(SK_Values[Values])
 
 ```
 
 ___Waterfull Title;___
 ```sql
-Waterfull Title = SELECTEDVALUE(SK_Values[Values]) & " YTD vs PYTD | Month - Country - Product "
+Waterfull Title =
+SELECTEDVALUE(SK_Values[Values]) &
+" YTD vs PYTD | Month - Country - Product "
 
 ```
 
@@ -157,19 +165,25 @@ YTD vs PYTD = [S_YTD]-[S_PYTD]
 #### YTD :
 ___YTD_CrossProfit;___
 ```sql
-YTD_CrossProfit = TOTALYTD([Cross_Profit],fact_sales[Date_Time])
+YTD_CrossProfit =
+TOTALYTD
+([Cross_Profit],fact_sales[Date_Time])
 
 ```
 
 ___YTD_Quantity;___
 ```sql
-YTD_Quantity = TOTALYTD([Quantity],fact_sales[Date_Time])
+YTD_Quantity =
+TOTALYTD
+([Quantity],fact_sales[Date_Time])
 
 ```
 
 ___YTD_Sales;___
 ```sql
-YTD_Sales = TOTALYTD([sales],fact_sales[Date_Time])
+YTD_Sales =
+TOTALYTD
+([sales],fact_sales[Date_Time])
 
 ```
 
