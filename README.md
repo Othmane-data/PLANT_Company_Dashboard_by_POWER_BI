@@ -29,12 +29,106 @@ My final [dashboard](all_dash_llc.pdf)
 
 ### 🧮 Data Cleaning and Dax :
 
-- Total Employees ;
+#### Measures:
+
+___Column Chart Title;___
 ```sql
-Total Employees = COUNT(HR_Analytics[EmpID])
+Column Chart Title = SELECTEDVALUE(SK_Values[Values]) & " YTD & PYTD | Month "
 
 ```
 
+___Report Title;___
+```sql
+Report Title = " Othmane-Data LLC " & SELECTEDVALUE(SK_Values[Values]) & " Performance " & SELECTEDVALUE(Dim_date[Date].[Year])
+
+```
+
+___Scatter Title;___
+```sql
+Scatter Title = " Account Profitability Segmentation | GP% and " & SELECTEDVALUE(SK_Values[Values])
+
+```
+
+___Waterfull Title;___
+```sql
+Waterfull Title = SELECTEDVALUE(SK_Values[Values]) & " YTD vs PYTD | Month - Country - Product "
+
+```
+
+#### Base Measures:
+
+___Quantity;___
+```sql
+Quantity = SUM(fact_sales[quantity])
+```
+
+___sales;___
+```sql
+sales = SUM(fact_sales[Sales_USD])
+
+```
+
+___Cross_Profit;___
+```sql
+Cross_Profit = [sales]-[COGS]
+
+```
+
+___GP%;___
+```sql
+GP% = DIVIDE([Cross_Profit],[sales])
+
+```
+
+#### PYTD:
+___PYTD_CrossProfit;___
+```sql
+PYTD_CrossProfit = 
+CALCULATE(
+    [Cross_Profit], 
+    SAMEPERIODLASTYEAR(Dim_date[Date]),
+    Dim_date[INPAST] = TRUE
+)
+```
+
+___PYTD_Quantity;___
+```sql
+PYTD_Quantity = 
+CALCULATE(
+    [Quantity], 
+    SAMEPERIODLASTYEAR(Dim_date[Date]),
+    Dim_date[INPAST] = TRUE
+)
+```
+
+___PYTD_Sales;___
+```sql
+PYTD_Sales = 
+CALCULATE(
+    [Sales], 
+    SAMEPERIODLASTYEAR(Dim_date[Date]),
+    Dim_date[INPAST] = TRUE
+)
+
+```
+
+___Column Chart Title;___
+```sql
+Column Chart Title = SELECTEDVALUE(SK_Values[Values]) & " YTD & PYTD | Month "
+
+```
+
+___Column Chart Title;___
+```sql
+Column Chart Title = SELECTEDVALUE(SK_Values[Values]) & " YTD & PYTD | Month "
+
+```
+
+___Column Chart Title;___
+```sql
+Column Chart Title = SELECTEDVALUE(SK_Values[Values]) & " YTD & PYTD | Month "
+
+```
 ### 📉 Charts and Visualization :
 
 KPI's Requirements   
@@ -144,36 +238,12 @@ ___KPI Requirements:___
 
 #### Conclusion
 
-This dashboard provides a detailed analysis of key HR metrics, offering valuable insights into employee demographics, satisfaction, attrition, and workforce distribution. The data reveals notable trends, such as a male-dominated workforce (60%), a high concentration of employees in the Research & Development department (64.93%), and significant attrition (230 employees). While job satisfaction is relatively higher in the Life Sciences field, it varies widely across educational backgrounds. The dashboard also highlights business travel trends, with the majority of employees traveling rarely.
+The dashboard successfully identifies key areas of growth and concern for Othmane-Data LLC. Positive trends in YTD sales compared to PYTD are evident, but challenges remain, particularly in underperforming regions and products with low profitability.
 
 #### Recommendations
 
-__Enhance Gender Diversity__
-
-* Develop and implement gender-inclusive hiring and promotion policies.
-* Introduce mentoring programs to support female employees in underrepresented roles.  
-
-__Reduce Employee Attrition__
-
-* Conduct exit interviews to identify common reasons for turnover.
-* Offer career development opportunities, competitive benefits, and a supportive work environment to improve retention.  
-
-__Optimize Job Satisfaction__
-
-* Address the disparities in job satisfaction among employees from different education fields.
-* Regularly conduct employee satisfaction surveys to monitor and act on feedback.  
-
-__Improve Workforce Balance__
-
-* Reassess resource distribution in departments with lower employee representation (e.g., Sales and Human Resources).
-* Provide targeted training programs to upskill employees in smaller departments.  
-
-__Optimize Business Travel Expenses__
-
-* Review travel policies to ensure cost-effectiveness while meeting business needs.
-* Consider leveraging virtual meetings for employees traveling frequently.  
-
-__Leverage Data-Driven Decision-Making__
-
-* Use predictive analytics to identify future HR trends and challenges, such as attrition risk or workforce aging.
-* Continuously monitor KPIs on the dashboard to adapt strategies as needed.  
+__1. Focus on Underperforming Countries:__ Develop targeted strategies for Poland, Sweden, and France, such as marketing campaigns or pricing adjustments.
+__2. Optimize Product Portfolio:__ Prioritize products with higher GP% while addressing the underperformance of lagging categories.
+__3. Leverage Monthly Trends:__ Use seasonal insights to prepare for peak sales periods and mitigate slumps.
+__4. Profitability Management:__ Reassess account-level profitability to balance high sales with adequate margins.
+__5. Continuous Monitoring:__ Regularly update the dashboard with real-time data to track performance and adapt strategies effectively.
