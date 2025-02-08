@@ -301,8 +301,8 @@ The dashboard successfully identifies key areas of growth and concern for Othman
 
 #### Recommendations
 
-__1. Focus on Underperforming Countries:__ Develop targeted strategies for Poland, Sweden, and France, such as marketing campaigns or pricing adjustments.
-__2. Optimize Product Portfolio:__ Prioritize products with higher GP% while addressing the underperformance of lagging categories.
-__3. Leverage Monthly Trends:__ Use seasonal insights to prepare for peak sales periods and mitigate slumps.
-__4. Profitability Management:__ Reassess account-level profitability to balance high sales with adequate margins.
-__5. Continuous Monitoring:__ Regularly update the dashboard with real-time data to track performance and adapt strategies effectively.
+__1. Focus on Underperforming Countries:__ Develop targeted strategies for Poland, Sweden, and France, such as marketing campaigns or pricing adjustments.   
+__2. Optimize Product Portfolio:__ Prioritize products with higher GP% while addressing the underperformance of lagging categories.   
+__3. Leverage Monthly Trends:__ Use seasonal insights to prepare for peak sales periods and mitigate slumps.   
+__4. Profitability Management:__ Reassess account-level profitability to balance high sales with adequate margins.   
+__5. Continuous Monitoring:__ Regularly update the dashboard with real-time data to track performance and adapt strategies effectively.   
